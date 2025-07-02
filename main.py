@@ -22,7 +22,7 @@ def create_query_map():
 
 def create_spark_session(args):
     spark_builder = SparkSession.builder.appName("Query Engine on Iceberg Tables")
-    spark_builder = spark_builder.master("local[*]") # Use local mode for testing; change as needed for cluster mode
+    #spark_builder = spark_builder.master("local[*]") # Use local mode for testing; change as needed for cluster mode
     spark_builder = spark_builder.config("spark.jars", gcs_connector_path) # Path to GCS connector JAR
     spark_builder = spark_builder.config("spark.hadoop.fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem")
     spark_builder = spark_builder.config("spark.hadoop.google.cloud.auth.service.account.json.keyfile", google_credentials) # Path to Google credentials JSON file
